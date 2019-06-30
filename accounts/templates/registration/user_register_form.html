@@ -1,0 +1,23 @@
+{% extends "tweets/base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block title %} Register | {{ block.super }} {% endblock title %}
+
+{% block content %}
+
+    <br/>
+    <div class="row justify-content-center">
+        <div class="col-sm-6 ">
+            <h1>Register</h1>
+            <br/>
+            <form class="form {% if form_class %} {{ form_class }} {% endif %}" method="POST" action="{% if action_url %} {{ action_url }} {% endif %}">
+                {% csrf_token %}
+                {{ form| crispy }}
+                <input class="btn btn-primary" type="submit" value="Register"/>
+            </form>
+
+        </div>
+    </div>
+
+{% endblock content %}
